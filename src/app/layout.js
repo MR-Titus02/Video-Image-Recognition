@@ -1,5 +1,6 @@
 import { Orbitron, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -13,32 +14,17 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata = {
-  title: "AI Vision",
-  description:
-    "Real-time AI object detection and image recognition using TensorFlow.js",
-};
-
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${orbitron.variable} ${inter.variable} h-full scroll-smooth`}
-    >
-      <body
-        className="
-          min-h-screen
-          bg-black
-          text-white
-          font-[family-name:var(--font-inter)]
-          antialiased
-          overflow-x-hidden
-          overflow-y-auto
-        "
-      >
+    <html lang="en" className={`${orbitron.variable} ${inter.variable} h-full scroll-smooth`}>
+      <body className="min-h-screen bg-black text-white antialiased overflow-x-hidden overflow-y-auto">
+
+        <Navbar />
+
         <main className="min-h-screen w-full">
           {children}
         </main>
+
       </body>
     </html>
   );
